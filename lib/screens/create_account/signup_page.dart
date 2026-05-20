@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vabc_app/screens/create_account/singup_controller.dart';
 import 'package:vabc_app/screens/login_screen/login_page.dart';
+import 'package:vabc_app/verification_page/otp_screen.dart';
 
 class SignupPage extends StatelessWidget {
   SignupPage({super.key});
@@ -207,7 +208,14 @@ class SignupPage extends StatelessWidget {
               // CREATE ACCOUNT BUTTON
               Obx(
                 () => GestureDetector(
-                  onTap: ctrl.isLoading.value ? null : ctrl.createAccount,
+                  onTap: ctrl.isLoading.value
+                      ? null
+                      : () async {
+                          await ctrl.createAccount();
+
+                          // Navigate to next page
+                          Get.to(() => OtpScreen());
+                        },
 
                   child: Container(
                     width: double.infinity,
@@ -234,10 +242,10 @@ class SignupPage extends StatelessWidget {
                               color: Colors.white,
                             ),
                           )
-                        : const Row(
+                        : Row(
                             mainAxisAlignment: MainAxisAlignment.center,
 
-                            children: [
+                            children: const [
                               Text(
                                 'Create Account',
                                 style: TextStyle(

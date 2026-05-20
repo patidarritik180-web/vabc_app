@@ -6,6 +6,6 @@ class SplashController extends GetxController {
   void navigateToHome() async {
     await Future.delayed(
       Duration(seconds: 5),
-    ).then((value) => Get.to(() => OnboardingPage()));
+    ).then((value) => Get.off(() => OnboardingPage()));
   }
 }

@@ -12,12 +12,12 @@ class OnboardingPage extends StatefulWidget {
 }
 
 class _OnboardingPageState extends State<OnboardingPage> {
-  final PageController _pageController = PageController(initialPage: 0);
+  final PageController _pageController = PageController();
 
   int currentIndex = 0;
 
   /// ONBOARDING PAGES
-  final List<Widget> onBoardingPages = [
+  final List<Widget> onBoardingPages = const [
     OnboardingCard(image: "assets/images/Container.png"),
 
     OnboardingCard(image: "assets/images/page2.png"),
@@ -28,9 +28,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
   /// BOTTOM IMAGES
   final List<String> bottomImages = [
     "assets/images/bottom.png",
-
     "assets/images/page2bottom.png",
-
     "assets/images/page3bottom.png",
   ];
 
@@ -63,42 +61,45 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
               child: Column(
                 children: [
-                  /// CHANGING BOTTOM IMAGE
+                  /// CHANGING IMAGE
                   SizedBox(
                     width: 341,
                     height: 147,
 
                     child: Image.asset(
                       bottomImages[currentIndex],
-
                       fit: BoxFit.contain,
                     ),
                   ),
 
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 24),
 
                   /// INDICATOR + BUTTON
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
                     children: [
                       /// PAGE INDICATOR
-                      SmoothPageIndicator(
-                        controller: _pageController,
+                      Expanded(
+                        child: Align(
+                          alignment: Alignment.centerLeft,
 
-                        count: 3,
+                          child: SmoothPageIndicator(
+                            controller: _pageController,
 
-                        effect: ExpandingDotsEffect(
-                          dotHeight: 8,
-                          dotWidth: 8,
+                            count: 3,
 
-                          activeDotColor: const Color(0xffFF6B35),
+                            effect: ExpandingDotsEffect(
+                              dotHeight: 8,
+                              dotWidth: 8,
 
-                          dotColor: Colors.grey.shade300,
+                              activeDotColor: const Color(0xffFF6B35),
+
+                              dotColor: Colors.grey.shade300,
+                            ),
+                          ),
                         ),
                       ),
 
-                      /// NEXT BUTTON
+                      /// BUTTON
                       GestureDetector(
                         onTap: () {
                           if (currentIndex < 2) {
@@ -108,26 +109,23 @@ class _OnboardingPageState extends State<OnboardingPage> {
                               curve: Curves.easeInOut,
                             );
                           } else {
-                            /// LAST PAGE BUTTON ACTION
-
-                            print("Get Started Clicked");
-
-                            // Example:
                             Get.to(() => LoginPage());
                           }
                         },
 
-                        child: Container(
-                          width: currentIndex == 2 ? 170 : 70,
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 300),
+
+                          width: currentIndex == 2 ? 180 : 70,
 
                           height: 54,
 
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(
-                              currentIndex == 2 ? 20 : 35,
-                            ),
-
                             color: const Color(0xffFF6B35),
+
+                            borderRadius: BorderRadius.circular(
+                              currentIndex == 2 ? 18 : 35,
+                            ),
 
                             boxShadow: [
                               BoxShadow(
@@ -147,33 +145,33 @@ class _OnboardingPageState extends State<OnboardingPage> {
                             child: currentIndex == 2
                                 /// LAST PAGE BUTTON
                                 ? Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    mainAxisSize: MainAxisSize.min,
 
-                                    children: [
-                                      const Text(
+                                    children: const [
+                                      Text(
                                         "Get Started",
 
                                         style: TextStyle(
                                           color: Colors.white,
-                                          fontSize: 18,
+                                          fontSize: 17,
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
 
-                                      const SizedBox(width: 8),
+                                      SizedBox(width: 8),
 
-                                      const Icon(
+                                      Icon(
                                         Icons.arrow_forward,
                                         color: Colors.white,
-                                        size: 24,
+                                        size: 22,
                                       ),
                                     ],
                                   )
-                                /// OTHER PAGES
+                                /// NORMAL BUTTON
                                 : const Icon(
                                     Icons.arrow_forward,
                                     color: Colors.white,
-                                    size: 32,
+                                    size: 30,
                                   ),
                           ),
                         ),

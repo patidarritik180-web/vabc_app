@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vabc_app/screens/create_account/signup_page.dart';
+import 'package:vabc_app/screens/forgot_pass_page/forgot_password_page.dart';
 
 import 'package:vabc_app/screens/login_screen/login_controller.dart';
 
@@ -150,7 +151,9 @@ class LoginPage extends StatelessWidget {
                   const Spacer(),
 
                   GestureDetector(
-                    onTap: ctrl.forgotPassword,
+                    onTap: () {
+                      Get.to(() => ForgotPasswordPage());
+                    },
                     child: const Text(
                       'Forgot password?',
                       style: TextStyle(

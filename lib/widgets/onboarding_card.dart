@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vabc_app/screens/login_screen/login_page.dart';
+import 'package:vabc_app/widgets/common_back_button.dart';
 
 class OnboardingCard extends StatelessWidget {
   final String image;
@@ -20,17 +21,10 @@ class OnboardingCard extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 10),
 
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 /// LOGO
-                SizedBox(
-                  width: 50,
-                  height: 50,
-
-                  child: Image.asset(
-                    'assets/images/logoappbar.png',
-                    fit: BoxFit.cover,
-                  ),
-                ),
+                CommonLogoUi(),
 
                 const SizedBox(width: 4),
 
