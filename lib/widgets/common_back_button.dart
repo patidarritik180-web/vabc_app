@@ -9,6 +9,7 @@ class CommonLogoUi extends StatelessWidget {
       width: 34,
       height: 34,
       margin: EdgeInsets.only(left: 10, right: 10),
+
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(11),
         gradient: const RadialGradient(

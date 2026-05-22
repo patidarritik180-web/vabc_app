@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:vabc_app/screens/create_account/signup_page.dart';
 import 'package:vabc_app/screens/forgot_pass_page/forgot_password_page.dart';
 
 import 'package:vabc_app/screens/login_screen/login_controller.dart';
+import 'package:vabc_app/widgets/common_back_button.dart';
 
 //import '../controllers/login_controller.dart';
 
@@ -25,17 +27,13 @@ class LoginPage extends StatelessWidget {
               // LOGO
               Row(
                 children: [
-                  Image.asset(
-                    'assets/images/logoappbar.png',
-                    width: 50,
-                    height: 50,
-                  ),
+                  CommonLogoUi(),
 
-                  const SizedBox(width: 10),
+                  const SizedBox(width: 4),
 
-                  const Text(
+                  Text(
                     'V A B C',
-                    style: TextStyle(
+                    style: GoogleFonts.sora(
                       color: Colors.white,
                       fontSize: 15,
                       fontWeight: FontWeight.w700,
@@ -48,9 +46,9 @@ class LoginPage extends StatelessWidget {
               const SizedBox(height: 36),
 
               // TITLE
-              const Text(
+              Text(
                 'Welcome to VABC',
-                style: TextStyle(
+                style: GoogleFonts.sora(
                   color: Colors.white,
                   fontSize: 28,
                   fontWeight: FontWeight.w800,
@@ -62,7 +60,7 @@ class LoginPage extends StatelessWidget {
 
               Text(
                 'Sign in to access your memories.',
-                style: TextStyle(
+                style: GoogleFonts.sora(
                   color: Colors.white.withOpacity(0.7),
                   fontSize: 14,
                 ),
@@ -142,7 +140,7 @@ class LoginPage extends StatelessWidget {
 
                   Text(
                     'Remember me',
-                    style: TextStyle(
+                    style: GoogleFonts.sora(
                       color: Colors.white.withOpacity(0.65),
                       fontSize: 13,
                     ),
@@ -154,9 +152,9 @@ class LoginPage extends StatelessWidget {
                     onTap: () {
                       Get.to(() => ForgotPasswordPage());
                     },
-                    child: const Text(
+                    child: Text(
                       'Forgot password?',
-                      style: TextStyle(
+                      style: GoogleFonts.sora(
                         color: Color(0xFFFB923C),
                         fontSize: 13,
                         fontWeight: FontWeight.w600,
@@ -201,13 +199,13 @@ class LoginPage extends StatelessWidget {
                               ),
                             ),
                           )
-                        : const Row(
+                        : Row(
                             mainAxisAlignment: MainAxisAlignment.center,
 
                             children: [
                               Text(
                                 'Sign In',
-                                style: TextStyle(
+                                style: GoogleFonts.sora(
                                   color: Colors.white,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w700,
@@ -241,7 +239,7 @@ class LoginPage extends StatelessWidget {
 
                     child: Text(
                       'OR CONTINUE WITH',
-                      style: TextStyle(
+                      style: GoogleFonts.sora(
                         color: Colors.white.withOpacity(0.35),
                         fontSize: 11,
                         fontWeight: FontWeight.w600,
@@ -289,7 +287,9 @@ class LoginPage extends StatelessWidget {
                   children: [
                     Text(
                       'No account?',
-                      style: TextStyle(color: Colors.white.withOpacity(0.45)),
+                      style: GoogleFonts.sora(
+                        color: Colors.white.withOpacity(0.45),
+                      ),
                     ),
 
                     TextButton(
@@ -297,9 +297,9 @@ class LoginPage extends StatelessWidget {
                         Get.to(SignupPage());
                       },
 
-                      child: const Text(
+                      child: Text(
                         'Create one',
-                        style: TextStyle(color: Color(0xFFE85D20)),
+                        style: GoogleFonts.sora(color: Color(0xFFE85D20)),
                       ),
                     ),
                   ],

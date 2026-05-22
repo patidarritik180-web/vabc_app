@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:vabc_app/screens/create_account/singup_controller.dart';
 import 'package:vabc_app/screens/login_screen/login_page.dart';
 import 'package:vabc_app/verification_page/otp_screen.dart';
@@ -46,9 +47,9 @@ class SignupPage extends StatelessWidget {
               const SizedBox(height: 10),
 
               // TITLE
-              const Text(
+              Text(
                 'Create your account',
-                style: TextStyle(
+                style: GoogleFonts.sora(
                   color: Colors.white,
                   fontSize: 28,
                   fontWeight: FontWeight.w700,
@@ -59,7 +60,7 @@ class SignupPage extends StatelessWidget {
 
               Text(
                 'A few details to personalize your VABC.',
-                style: TextStyle(
+                style: GoogleFonts.sora(
                   color: Colors.white.withOpacity(0.7),
                   fontSize: 13,
                 ),
@@ -182,12 +183,12 @@ class SignupPage extends StatelessWidget {
                               fontSize: 13,
                             ),
 
-                            children: const [
+                            children: [
                               TextSpan(text: 'I agree to the '),
 
                               TextSpan(
                                 text: 'Terms',
-                                style: TextStyle(
+                                style: GoogleFonts.sora(
                                   color: Color(0xFFFB923C),
                                   fontWeight: FontWeight.w600,
                                 ),
@@ -245,10 +246,10 @@ class SignupPage extends StatelessWidget {
                         : Row(
                             mainAxisAlignment: MainAxisAlignment.center,
 
-                            children: const [
+                            children: [
                               Text(
                                 'Create Account',
-                                style: TextStyle(
+                                style: GoogleFonts.sora(
                                   color: Colors.white,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w700,
@@ -273,8 +274,10 @@ class SignupPage extends StatelessWidget {
 
                   children: [
                     Text(
-                      'Already a member? ',
-                      style: TextStyle(color: Colors.white.withOpacity(0.5)),
+                      'Already a Zaswdmember? ',
+                      style: GoogleFonts.sora(
+                        color: Colors.white.withOpacity(0.5),
+                      ),
                     ),
 
                     GestureDetector(
@@ -282,9 +285,9 @@ class SignupPage extends StatelessWidget {
                         Get.to(LoginPage());
                       },
 
-                      child: const Text(
+                      child: Text(
                         'Sign in',
-                        style: TextStyle(
+                        style: GoogleFonts.sora(
                           color: Color(0xFFFF6B2C),
                           fontWeight: FontWeight.w600,
                         ),
