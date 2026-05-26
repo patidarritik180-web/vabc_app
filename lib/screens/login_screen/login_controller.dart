@@ -42,7 +42,7 @@ class LoginController extends GetxController {
       Get.snackbar(
         'Error',
         e.toString(),
-        backgroundColor: Colors.red,
+        backgroundColor: Color(0xFFFB923C),
         colorText: Colors.white,
       );
     } finally {

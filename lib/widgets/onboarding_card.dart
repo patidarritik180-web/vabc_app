@@ -13,13 +13,11 @@ class OnboardingCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-
       child: Column(
         children: [
           /// TOP BAR
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 10),
-
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -30,15 +28,11 @@ class OnboardingCard extends StatelessWidget {
 
                 /// TITLE
                 Text(
-                  "V A B C",
-
+                  "VABC",
                   style: GoogleFonts.sora(
                     color: Colors.black,
-
                     fontSize: 14,
-
                     fontWeight: FontWeight.bold,
-
                     letterSpacing: 2.8,
                   ),
                 ),
@@ -50,14 +44,9 @@ class OnboardingCard extends StatelessWidget {
                   onPressed: () {
                     Get.to(() => LoginPage());
                   },
-
                   child: Text(
                     "Skip",
-
-                    style: GoogleFonts.sora(
-                      color: Colors.black54,
-                      fontSize: 12,
-                    ),
+                    style: GoogleFonts.sora(color: Colors.grey, fontSize: 12),
                   ),
                 ),
               ],
@@ -66,12 +55,10 @@ class OnboardingCard extends StatelessWidget {
 
           /// CENTER IMAGE
           Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 10, bottom: 20),
-
-              child: SizedBox(
-                width: 346,
-                height: 488,
+            child: Center(
+              child: Container(
+                width: 390,
+                height: 480,
 
                 child: Image.asset(image, fit: BoxFit.contain),
               ),

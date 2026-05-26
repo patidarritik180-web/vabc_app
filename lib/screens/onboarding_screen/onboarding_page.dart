@@ -63,8 +63,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 children: [
                   /// CHANGING IMAGE
                   SizedBox(
-                    width: 341,
-                    height: 147,
+                    width: double.infinity,
+                    height: 120,
 
                     child: Image.asset(
                       bottomImages[currentIndex],
@@ -100,79 +100,81 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       ),
 
                       /// BUTTON
-                      GestureDetector(
-                        onTap: () {
-                          if (currentIndex < 2) {
-                            _pageController.nextPage(
-                              duration: const Duration(milliseconds: 300),
+                      Container(
+                        child: GestureDetector(
+                          onTap: () {
+                            if (currentIndex < 2) {
+                              _pageController.nextPage(
+                                duration: const Duration(milliseconds: 300),
 
-                              curve: Curves.easeInOut,
-                            );
-                          } else {
-                            Get.to(() => LoginPage());
-                          }
-                        },
+                                curve: Curves.easeInOut,
+                              );
+                            } else {
+                              Get.to(() => LoginPage());
+                            }
+                          },
 
-                        child: AnimatedContainer(
-                          duration: const Duration(milliseconds: 300),
+                          child: AnimatedContainer(
+                            duration: const Duration(milliseconds: 300),
 
-                          width: currentIndex == 2 ? 180 : 70,
+                            width: currentIndex == 2 ? 180 : 70,
 
-                          height: 54,
+                            height: 54,
 
-                          decoration: BoxDecoration(
-                            color: const Color(0xffFF6B35),
+                            decoration: BoxDecoration(
+                              color: const Color(0xffFF6B35),
 
-                            borderRadius: BorderRadius.circular(
-                              currentIndex == 2 ? 18 : 35,
+                              borderRadius: BorderRadius.circular(
+                                currentIndex == 2 ? 18 : 35,
+                              ),
+
+                              boxShadow: [
+                                BoxShadow(
+                                  color: const Color(
+                                    0xffFF6B35,
+                                  ).withOpacity(0.35),
+
+                                  blurRadius: 18,
+                                  spreadRadius: 2,
+
+                                  offset: const Offset(0, 8),
+                                ),
+                              ],
                             ),
 
-                            boxShadow: [
-                              BoxShadow(
-                                color: const Color(
-                                  0xffFF6B35,
-                                ).withOpacity(0.35),
+                            child: Center(
+                              child: currentIndex == 2
+                                  /// LAST PAGE BUTTON
+                                  ? Row(
+                                      mainAxisSize: MainAxisSize.min,
 
-                                blurRadius: 18,
-                                spreadRadius: 2,
+                                      children: const [
+                                        Text(
+                                          "Get Started",
 
-                                offset: const Offset(0, 8),
-                              ),
-                            ],
-                          ),
-
-                          child: Center(
-                            child: currentIndex == 2
-                                /// LAST PAGE BUTTON
-                                ? Row(
-                                    mainAxisSize: MainAxisSize.min,
-
-                                    children: const [
-                                      Text(
-                                        "Get Started",
-
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 17,
-                                          fontWeight: FontWeight.bold,
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
-                                      ),
 
-                                      SizedBox(width: 8),
+                                        SizedBox(width: 8),
 
-                                      Icon(
-                                        Icons.arrow_forward,
-                                        color: Colors.white,
-                                        size: 22,
-                                      ),
-                                    ],
-                                  )
-                                /// NORMAL BUTTON
-                                : const Icon(
-                                    Icons.arrow_forward,
-                                    color: Colors.white,
-                                    size: 30,
-                                  ),
+                                        Icon(
+                                          Icons.arrow_forward,
+                                          color: Colors.white,
+                                          size: 22,
+                                        ),
+                                      ],
+                                    )
+                                  /// NORMAL BUTTON
+                                  : const Icon(
+                                      Icons.arrow_forward,
+                                      color: Colors.white,
+                                      size: 30,
+                                    ),
+                            ),
                           ),
                         ),
                       ),

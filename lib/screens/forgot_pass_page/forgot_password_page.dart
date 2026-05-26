@@ -26,10 +26,15 @@ class ForgotPasswordPage extends StatelessWidget {
                 child: Container(
                   width: 40,
                   height: 40,
+
                   decoration: BoxDecoration(
-                    color: const Color(0xFF2A2A2A),
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(
+                      color: const Color(0xFFFF6B2C).withOpacity(0.4),
+                    ),
+                    color: const Color(0xFFFF6B2C).withOpacity(0.08),
                   ),
+
                   child: const Icon(
                     Icons.chevron_left,
                     color: Colors.white,

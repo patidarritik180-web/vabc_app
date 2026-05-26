@@ -43,7 +43,7 @@ class LoginPage extends StatelessWidget {
                 ],
               ),
 
-              const SizedBox(height: 36),
+              const SizedBox(height: 30),
 
               // TITLE
               Text(
@@ -278,7 +278,7 @@ class LoginPage extends StatelessWidget {
                 label: 'Continue with Google',
               ),
 
-              const SizedBox(height: 48),
+              const SizedBox(height: 90),
 
               // CREATE ACCOUNT
               Center(

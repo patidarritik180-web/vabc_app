@@ -274,7 +274,7 @@ class SignupPage extends StatelessWidget {
 
                   children: [
                     Text(
-                      'Already a Zaswdmember? ',
+                      'Already a member? ',
                       style: GoogleFonts.sora(
                         color: Colors.white.withOpacity(0.5),
                       ),
