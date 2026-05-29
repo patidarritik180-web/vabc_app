@@ -5,6 +5,7 @@ import 'package:vabc_app/screens/create_account/signup_page.dart';
 import 'package:vabc_app/screens/forgot_pass_page/forgot_password_page.dart';
 
 import 'package:vabc_app/screens/login_screen/login_controller.dart';
+import 'package:vabc_app/widgets/bottom_bar.dart';
 import 'package:vabc_app/widgets/common_back_button.dart';
 
 //import '../controllers/login_controller.dart';
@@ -169,7 +170,15 @@ class LoginPage extends StatelessWidget {
               // SIGN IN BUTTON
               Obx(
                 () => GestureDetector(
-                  onTap: ctrl.isLoading.value ? null : ctrl.signIn,
+                  onTap: ctrl.isLoading.value
+                      ? null
+                      : () async {
+                          /// CALL LOGIN FUNCTION
+                          await ctrl.signIn();
+
+                          /// NAVIGATE
+                          Get.offAll(() => const BottomBar());
+                        },
 
                   child: Container(
                     width: double.infinity,
@@ -212,9 +221,9 @@ class LoginPage extends StatelessWidget {
                                 ),
                               ),
 
-                              SizedBox(width: 8),
+                              const SizedBox(width: 8),
 
-                              Icon(
+                              const Icon(
                                 Icons.arrow_forward,
                                 color: Colors.white,
                                 size: 18,
